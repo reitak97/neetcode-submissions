@@ -1,0 +1,11 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res= defaultdict(list)
+        for word in strs:
+            freq_count = [0] * 26
+            for char in word:
+                freq_count[ord(char)-ord('a')] +=1
+
+            res[tuple(freq_count)].append(word)
+
+        return list(res.values())
